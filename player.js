@@ -21,9 +21,19 @@ exports = module.exports = {
 		var hasColore = detector.hasColore(hand);
 		var hasFull = detector.hasFull(hand);
 
+		var river = gamestate.commonCards.length === 5; 
+    var turn = gamestate.commonCards.length === 4;
+    var preRiver = gamestate.commonCards.length < 5;
+    var preTurn = gamestate.commonCards.length < 4;
+    var preFlop = gamestate.commonCards.length < 3;
+
 		var hoQualcosaDiBasso = hasCoppia || hasTris;
 		var hoQualcosaDiAlto = hasPoker || hasDoppiaCoppia || hasColore || hasFull;
 	 
+	 	if (preFlop) {
+	 		return call;
+	 	}
+
 		if (hoQualcosaDiBasso) {
 			return call;
 		} else if (hoQualcosaDiAlto) {
