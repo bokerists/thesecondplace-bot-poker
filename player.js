@@ -27,10 +27,11 @@ exports = module.exports = {
     let preTurn = hand.length < 4;
     let preFlop = hand.length < 3;
 
-		let hoQualcosaDiBasso = hasCoppia || hasTris;
-		let hoQualcosaDiAlto = hasPoker || hasDoppiaCoppia || hasColore || hasFull;
+		let hoQualcosaDiBasso = hasCoppia || ;
+		let hoQualcosaDiAlto =  hasDoppiaCoppia || hasTris;
+		let hoQualcosaDiMoltoAlto =  hasColore || hasFull || hasPoker;
 	 
-	 	if (preTurn) {
+	 	if (preFlop) {
 	 		return call;
 	 	}
 
@@ -38,6 +39,8 @@ exports = module.exports = {
 			return call;
 		} else if (hoQualcosaDiAlto) {
 			return gamestate.minimumRaiseAmount * 2;
+		} else if (hoQualcosaDiMoltoAlto) {
+			return allIn;
 		}
 
 	
