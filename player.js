@@ -37,7 +37,7 @@ exports = module.exports = {
 		if (hoQualcosaDiBasso) {
 			return call;
 		} else if (hoQualcosaDiAlto) {
-			return call*2;
+			return gamestate.minimumRaiseAmount * 2;
 		}
 
 	
