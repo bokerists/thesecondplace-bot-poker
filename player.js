@@ -21,6 +21,8 @@ exports = module.exports = {
 		let hasColore = detector.hasColore(hand);
 		let hasFull = detector.hasFull(hand);
 
+		let cluster = detector.sklanskyCluster(me.cards);
+
 		let river = hand.length === 5; 
     let turn = hand.length === 4;
     let preRiver = hand.length < 5;
@@ -30,21 +32,30 @@ exports = module.exports = {
 		let hoQualcosaDiBasso = hasCoppia || ;
 		let hoQualcosaDiAlto =  hasDoppiaCoppia || hasTris;
 		let hoQualcosaDiMoltoAlto =  hasColore || hasFull || hasPoker;
-	 
+	 	
+
+		if (preFlop && cluster <= 6) {
+			return fold;
+		}
+
 	 	if (preFlop) {
 	 		return call;
 	 	}
 
 		if (hoQualcosaDiBasso) {
 			return call;
-		} else if (hoQualcosaDiAlto) {
+		}
+
+		if (hoQualcosaDiAlto) {
 			return gamestate.minimumRaiseAmount * 2;
-		} else if (hoQualcosaDiMoltoAlto) {
+		}
+
+		if (hoQualcosaDiMoltoAlto) {
 			return allIn;
 		}
 
 	
-		return 0;
+		return fold;
 
 	}
 
