@@ -16,12 +16,20 @@ exports = module.exports = {
 
 		var hasCoppia = detector.hasCoppia(hand);
 		var hasTris = detector.hasTris(hand);
+		var hasPoker = detector.hasPoker(hand);
+		var hasDoppiaCoppia = detector.hasDoppiaCoppia(hand);
+		var hasColore = detector.hasColore(hand);
+		var hasFull = detector.hasFull(hand);
 
-		var hoQualcosa = hasCoppia || hasTris;
+		var hoQualcosaDiBasso = hasCoppia || hasTris;
+		var hoQualcosaDiAlto = hasPoker || hasDoppiaCoppia || hasColore || hasFull;
 	 
-		if (hoQualcosa) {
+		if (hoQualcosaDiBasso) {
 			return call;
+		} else if (hoQualcosaDiAlto) {
+			return allIn;
 		}
+
 	
 		return 0;
 
