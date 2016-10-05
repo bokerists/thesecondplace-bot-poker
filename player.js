@@ -29,7 +29,7 @@ exports = module.exports = {
     let preTurn = hand.length < 4;
     let preFlop = hand.length < 3;
 
-		let hoQualcosaDiBasso = hasCoppia || ;
+		let hoQualcosaDiBasso = hasCoppia ;
 		let hoQualcosaDiAlto =  hasDoppiaCoppia || hasTris;
 		let hoQualcosaDiMoltoAlto =  hasColore || hasFull || hasPoker;
 	 	
