@@ -21,16 +21,16 @@ exports = module.exports = {
 		let hasColore = detector.hasColore(hand);
 		let hasFull = detector.hasFull(hand);
 
-		let river = gamestate.commonCards.length === 5; 
-    let turn = gamestate.commonCards.length === 4;
-    let preRiver = gamestate.commonCards.length < 5;
-    let preTurn = gamestate.commonCards.length < 4;
-    let preFlop = gamestate.commonCards.length < 3;
+		let river = hand.length === 5; 
+    let turn = hand.length === 4;
+    let preRiver = hand.length < 5;
+    let preTurn = hand.length < 4;
+    let preFlop = hand.length < 3;
 
 		let hoQualcosaDiBasso = hasCoppia || hasTris;
 		let hoQualcosaDiAlto = hasPoker || hasDoppiaCoppia || hasColore || hasFull;
 	 
-	 	if (preFlop) {
+	 	if (preTurn) {
 	 		return call;
 	 	}
 
