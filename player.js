@@ -11,24 +11,24 @@ exports = module.exports = {
 		const fold = 0;
 		const allIn = Infinity;
 		
-		var me = gamestate.players[gamestate.me];
-		var hand = gamestate.commonCards.concat(me.cards);
+		let me = gamestate.players[gamestate.me];
+		let hand = gamestate.commonCards.concat(me.cards);
 
-		var hasCoppia = detector.hasCoppia(hand);
-		var hasTris = detector.hasTris(hand);
-		var hasPoker = detector.hasPoker(hand);
-		var hasDoppiaCoppia = detector.hasDoppiaCoppia(hand);
-		var hasColore = detector.hasColore(hand);
-		var hasFull = detector.hasFull(hand);
+		let hasCoppia = detector.hasCoppia(hand);
+		let hasTris = detector.hasTris(hand);
+		let hasPoker = detector.hasPoker(hand);
+		let hasDoppiaCoppia = detector.hasDoppiaCoppia(hand);
+		let hasColore = detector.hasColore(hand);
+		let hasFull = detector.hasFull(hand);
 
-		var river = gamestate.commonCards.length === 5; 
-    var turn = gamestate.commonCards.length === 4;
-    var preRiver = gamestate.commonCards.length < 5;
-    var preTurn = gamestate.commonCards.length < 4;
-    var preFlop = gamestate.commonCards.length < 3;
+		let river = gamestate.commonCards.length === 5; 
+    let turn = gamestate.commonCards.length === 4;
+    let preRiver = gamestate.commonCards.length < 5;
+    let preTurn = gamestate.commonCards.length < 4;
+    let preFlop = gamestate.commonCards.length < 3;
 
-		var hoQualcosaDiBasso = hasCoppia || hasTris;
-		var hoQualcosaDiAlto = hasPoker || hasDoppiaCoppia || hasColore || hasFull;
+		let hoQualcosaDiBasso = hasCoppia || hasTris;
+		let hoQualcosaDiAlto = hasPoker || hasDoppiaCoppia || hasColore || hasFull;
 	 
 	 	if (preFlop) {
 	 		return call;
