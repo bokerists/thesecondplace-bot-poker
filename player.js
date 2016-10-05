@@ -4,7 +4,7 @@ const detector = require('botpoker-card-detection')
 
 exports = module.exports = {
 
-	VERSION: 'Superstar poker js-player',
+	VERSION: '0.0.1',
 
 	bet: function (gamestate) {
 		const call = gamestate.callAmount;
